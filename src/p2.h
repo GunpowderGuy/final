@@ -5,6 +5,14 @@
 #ifndef POO2_PC2_SEC01_V2021_1_P2_H
 #define POO2_PC2_SEC01_V2021_1_P2_H
 
+template<typename T, template <typename...> class CType>
+CType<T> rank_values(CType<T> cnt) {
+    return CType<T>{};
+}
+
+void question_2_1();
+
+
 #include <algorithm>
 #include <vector>
 
@@ -30,6 +38,5 @@ template <typename Cont> auto rank_values(Cont cont) {
   return rankear(temp);
 }
 
-void question_2_1();
 
-#endif // POO2_PC2_SEC01_V2021_1_P2_H
+#endif //POO2_PC2_SEC01_V2021_1_P2_H
