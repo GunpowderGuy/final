@@ -12,10 +12,9 @@
 
 using namespace std;
 
-    template <template <typename...> class CTemplate, typename CType,
-              typename T = typename CType::value_type>
-    std::pair<int, int>
-    minimum_range(CTemplate<CType> containers) {
+template <template <typename...> class CTemplate, typename CType,
+          typename T = typename CType::value_type>
+std::pair<int, int> minimum_range(CTemplate<CType> containers) {
   return std::pair<int, int>{};
 }
 void question_1_1();
@@ -26,7 +25,7 @@ struct Comparator {
   }
 };
 
-inline vector<int> minimum_range(vector<vector<int>> &nums) {
+inline vector<int> proto_minimum_range(vector<vector<int>> &nums) {
   int minRange = INT_MAX;
   int maxRange = INT_MIN;
   int rangeSize = INT_MAX;
@@ -62,6 +61,18 @@ inline vector<int> minimum_range(vector<vector<int>> &nums) {
   ans[0] = minRange;
   ans[1] = maxRange;
   return ans;
+}
+
+inline pair<int, int> minimum_range(vector<vector<int>> &conts) {
+  return make_pair(0,0);
+  
+  const auto temp = proto_minimum_range(conts);
+
+  if (!temp.empty()) {
+    return make_pair(temp.front(), temp.back());
+  } else {
+    return make_pair(0, 0);
+  }
 }
 
 #endif // POO2_PC2_SEC01_V2021_1_P1_H
