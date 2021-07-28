@@ -28,7 +28,7 @@ using weak_node =
 
 template <typename T,
           typename... Params> // make_node<T> ~~ make_shared<node_impl<T>>
-node<T> make_node(Params... params) {
+node<T> inline make_node(Params... params) {
   return make_shared<node_impl<T>>(params...);
 }
 
